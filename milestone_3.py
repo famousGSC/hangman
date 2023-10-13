@@ -4,7 +4,7 @@ word_list = ["Banana", "Apple", "Kiwi","Strawberry","Blueberry"]
 word=random.choice(word_list)
 print(word)
 
-def check_guess_valid():
+def ask_for_input():
 
     while True:
         try:
@@ -20,12 +20,12 @@ def check_guess_valid():
             print("Invalid guess. Please, enter a single alphabetical character")
             continue
 
-def check_letter_against_word():
+def check_guess(guess):
     if guess in word:
         print(f"Good guess, {guess} is in the word!")
     else:
         print(f"Bad luck, {guess} is not in the word. Try again.")
 
 
-guess=check_guess_valid()
-check_letter_against_word()
+guess=ask_for_input()
+check_guess(guess)
