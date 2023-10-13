@@ -1,9 +1,10 @@
 import random
 word_list = ["Banana", "Apple", "Kiwi","Strawberry","Blueberry"]
+# Generates a random word from the list
 word=random.choice(word_list)
-print(word)
+#print(word)
 
-def take_input():
+def input_letter_guess():
 
     while True:
         try:
@@ -17,4 +18,4 @@ def take_input():
             print("Oops, not a single letter. Please try again.")
             continue
 
-take_input()
+input_letter_guess()
