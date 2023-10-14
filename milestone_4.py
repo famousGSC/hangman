@@ -32,7 +32,7 @@ class Hangman:
                     self.check_guess(guess)
                     self.list_of_guesses.append(guess)
                     return guess
-                break
+                break # Problem is here
             except ValueError:
                 print("Invalid guess. Please, enter a single alphabetical character")
                 continue
