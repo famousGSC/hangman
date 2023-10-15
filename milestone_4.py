@@ -10,10 +10,10 @@ class Hangman:
         self.list_of_guesses=[]
 
         self.word_guessed=list(self.word.lower())
-        self.hidden=['_' if i in self.list_of_guesses else i for i in self.word_guessed]
+        self.hidden=[i if i in self.list_of_guesses else '_' for i in self.word_guessed]
 
         # Number of unique letters remaining
-        self.num_letters=len(set(self.hidden))-1 # -1 is so you don't count the '_' character
+        self.num_letters=len(set(self.word_guessed))
 
         
 
@@ -29,8 +29,8 @@ class Hangman:
                     print(f"You've already guessed {guess}, please try again")
                     continue
                 else:
-                    self.check_guess(guess)
                     self.list_of_guesses.append(guess)
+                    self.check_guess(guess)
                     return guess, self.list_of_guesses
                 break # Problem is here
             except ValueError:
@@ -40,7 +40,13 @@ class Hangman:
     def check_guess(self,guess):
         if guess in self.word_guessed:
             print(f"Good guess, {guess} is in the word!")
+            guess = guess.lower()
+            for i in range(len(self.word_guessed)):
+                if self.word_guessed[i] == guess:
+                    self.hidden[i]=guess
+            self.num_letters-=1
             print(self.hidden)
+
         else:
             print(f"Bad luck, {guess} is not in the word. Try again.")
 
