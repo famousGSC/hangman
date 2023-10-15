@@ -49,12 +49,26 @@ class Hangman:
 
         else:
             print(f"Bad luck, {guess} is not in the word. Try again.")
+            self.num_lives-=1
+            print(f"You have {self.num_lives} lives remaining.")
+
+    def play_game(self):
+        print(self.hidden)
+        while True:
+            if self.num_lives <= 0:
+                print('You lost!')
+                break
+            elif self.num_letters > 0:
+                self.ask_for_input()
+            else:
+                print('You won! Congratulations!')
+                break
+
 
 
 my_hangman=Hangman(["Banana", "Apple", "Kiwi","Strawberry","Blueberry"])
-print(my_hangman.hidden)
-print(my_hangman.num_letters)
+#print(my_hangman.hidden)
+#print(my_hangman.num_letters)
 
-guess, list_of_guesses= my_hangman.ask_for_input()
-print(guess, list_of_guesses)
+my_hangman.play_game()
     
