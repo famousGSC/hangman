@@ -31,7 +31,7 @@ class Hangman:
                 else:
                     self.check_guess(guess)
                     self.list_of_guesses.append(guess)
-                    return guess
+                    return guess, self.list_of_guesses
                 break # Problem is here
             except ValueError:
                 print("Invalid guess. Please, enter a single alphabetical character")
@@ -40,6 +40,7 @@ class Hangman:
     def check_guess(self,guess):
         if guess in self.word_guessed:
             print(f"Good guess, {guess} is in the word!")
+            print(self.hidden)
         else:
             print(f"Bad luck, {guess} is not in the word. Try again.")
 
@@ -48,5 +49,6 @@ my_hangman=Hangman(["Banana", "Apple", "Kiwi","Strawberry","Blueberry"])
 print(my_hangman.hidden)
 print(my_hangman.num_letters)
 
-my_hangman.ask_for_input()
+guess, list_of_guesses= my_hangman.ask_for_input()
+print(guess, list_of_guesses)
     
