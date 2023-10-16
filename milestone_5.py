@@ -1,5 +1,4 @@
 import random
-#guesses=['k','i','p','n', 'r']
 
 class Hangman:
     def __init__(self, word_list, num_lives=5):
@@ -32,7 +31,7 @@ class Hangman:
                     self.list_of_guesses.append(guess)
                     self.check_guess(guess)
                     return guess, self.list_of_guesses
-                break # Problem is here
+                break 
             except ValueError:
                 print("Invalid guess. Please, enter a single alphabetical character")
                 continue
@@ -67,8 +66,6 @@ class Hangman:
 
 
 my_hangman=Hangman(["Ontario", "Saskatchawan", "Alberta","NovaScotia","Newfoundland", "BritishColumbia", "Nunavut", "NorthwestTerritories","Yukon", "PrinceEdwardIsland", "Quebec"])
-#print(my_hangman.hidden)
-#print(my_hangman.num_letters)
 
 my_hangman.play_game()
     
